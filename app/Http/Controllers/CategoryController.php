@@ -19,23 +19,24 @@ class CategoryController extends Controller
 
 public function mami($parentID='')
     {
-  $htmlOption = $this->getCategory;
-  return view('category.add', compact('htmlOption'));
+  $htmlOption = $this->getCategory($parentID='');
+  return view('admin.category.add', compact('htmlOption'));
     }
 
 public function index(){
       $categories = $this->category->latest()->paginate(5);
-        return view('category.index', compact('categories'));
+        return view('admin.category.index', compact('categories'));
     }
 
 
     public function store(Request $request){
     $this->category->create([
-'name'=>$request->name,
-'parent_id'=>$request->parent_id,
-'slug'=>Str::snake($request->name)
+        'name'=>$request->name,
+        'parent_id'=>$request->parent_id,
+        'slug'=>Str::snake($request->name)
     ]);
     return redirect()->route('categories.index');
+
     }
 
     public function getCategory($parentID){
@@ -50,7 +51,7 @@ public function index(){
         $category = $this->category->find($id);
         $htmlOption = $this->getCategory($category->parent_id);
 
-         return view('category.edit', compact('category', 'htmlOption'));
+         return view('admin.category.edit', compact('category', 'htmlOption'));
           }
 
 
@@ -59,11 +60,11 @@ public function index(){
            return redirect()->route('categories.index');
           }
 
-          public function update($id, Request $request){
-$this->category->find($id)->update([
-    'name'=>$request->name,
-'parent_id'=>$request->parent_id,
-'slug'=>Str::snake($request->name)
+ public function update($id, Request $request){
+        $this->category->find($id)->update([
+        'name'=>$request->name,
+        'parent_id'=>$request->parent_id,
+        'slug'=>Str::snake($request->name)
 ]);
       return redirect()->route('categories.index');
 }

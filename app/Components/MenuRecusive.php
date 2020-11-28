@@ -10,12 +10,18 @@ class MenuRecusive{
     {
         $this->html='';
     }
-    public function menuRecusiveAdd($parentID, $subMark = ''){
-        $date = Menu::where('parent_id', $parentID)->get();
-        foreach ($data as $dataItem){
-            $this->html .= "<option value".$dataItem->id.">". $subMark .$dataItem->name."</option>";
 
-            $this->menuRecusiveAdd($dataItem->id, $subMark.'--');
+    public function menuRecusiveAdd($parentIdMenuEdit,$parentID = 0, $subMark = ''){
+        $data = Menu::where('parent_id', $parentID)->get();
+        foreach ($data as $dataItem){
+            if($parentIdMenuEdit==$dataItem->id){
+                $this->html .= '<option selected value="'.$dataItem->id.'">'.$subMark .$dataItem->name.'</option>';
+            }else{
+                $this->html .= '<option value="'.$dataItem->id.'">'.$subMark .$dataItem->name.'</option>';
+            }
+
+
+            $this->menuRecusiveAdd($parentIdMenuEdit,$dataItem->id, $subMark.'--');
         }
         return $this->html;
     }

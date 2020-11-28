@@ -14,7 +14,7 @@
           <img src="{{ asset('AdminLTE-3.0.5/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">hoang van ngoc</a>
         </div>
       </div>
 
@@ -33,6 +33,7 @@
               </p>
             </a>
           </li>
+
           <li class="nav-item">
             <a href="{{ route('menu.index') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -41,6 +42,54 @@
               </p>
             </a>
           </li>
+
+
+          <li class="nav-item">
+            <a href="{{ route('product.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               products
+              </p>
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a href="{{ route('slider.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Slider
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('setting.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Setting
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('user.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Danh sách nhân viên
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('roles.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Danh sách vai trò(Role)
+              </p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
