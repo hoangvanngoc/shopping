@@ -13,6 +13,8 @@ use App\Models\productTag;
 use App\Traits\DeleteModelTrait;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\View;
 
 
 
@@ -57,7 +59,7 @@ class AdminProductController extends Controller
               'price'=>$request->price,
               'content'=>$request->contents,
               'user_id'=>auth()->id(),
-              'category_id'=>$request->category_id
+              'category_id'=>$request->category_id,
         ];
         $datauploadfeatureImage = $this->storageTraitUpload($request, $fileName='feature_image_path', $forderName='product');
         if(!empty($datauploadfeatureImage)){
@@ -104,10 +106,10 @@ class AdminProductController extends Controller
   }
 }
 
-    public function edit($id)
+   public function edit($id)
         {
             $product = $this->product->find($id);
-            $htmlOption = $this-> getCategory($product->category_id);
+            $htmlOption = $this->getCategory($product->category_id);
             return view('admin.product.edit', compact('htmlOption', 'product'));
         }
 

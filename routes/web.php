@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // cart products route
-Route::get('/homecart', 'App\Http\Controllers\ProductsController@index');
+// Route::get('/homecart', 'App\Http\Controllers\ProductsController@index');
 
-route::get('/cart', 'App\Http\Controllers\ProductsController@cart');
+// route::get('/cart', 'App\Http\Controllers\ProductsController@cart');
 
-route::get('add-to-cart/{id}','App\Http\Controllers\ProductsController@addToCart');
+// route::get('add-to-cart/{id}','App\Http\Controllers\ProductsController@addToCart');
 
-Route::patch('update-cart', 'App\Http\Controllers\ProductsController@update');
+// Route::patch('update-cart', 'App\Http\Controllers\ProductsController@update');
 
-Route::delete('remove-from-cart', 'App\Http\Controllers\ProductsController@remove');
+// Route::delete('remove-from-cart', 'App\Http\Controllers\ProductsController@remove');
 
 //cart products route
 //login
@@ -123,6 +123,7 @@ Route::prefix('admin')->group(function () {
                 'as'=>'product.delete',
                 'uses'=> 'App\Http\Controllers\AdminProductController@delete'
              ]) ;
+             Route::resource('posts', 'App\Http\Controllers\AdminProductController');
 
 
     });

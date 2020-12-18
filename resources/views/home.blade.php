@@ -2,8 +2,9 @@
 @extends('layouts.admin')
 
 @section('title')
+<title>Trang chu</title>
 @endsection
-<title>Trang chủ</title>
+
 @section('content')
     <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
