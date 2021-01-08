@@ -4,6 +4,7 @@ use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -254,5 +255,8 @@ Route::prefix('admin')->group(function () {
 
 
 });
+Route::resource('bill', 'App\Http\Controllers\AdminBillController');
+
+Route::view('allbi', 'admin.bill.edit')->name('hello');
 
 
